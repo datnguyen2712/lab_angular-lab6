@@ -1,0 +1,29 @@
+<h3>Danh sách User</h3>
+<a routerLink="/user-add" class="btn btn-primary">Thêm User</a>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td><img src="{{ user.image }}" width="100px" height="100px" /></td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>
+        <a routerLink="/user-edit/{{ user.id }}" class="btn btn-primary"
+          >Edit</a
+        >
+        <button (click)="deleteItem(user.id)" class="btn btn-danger">
+          Delete
+        </button>   
+      </td>
+    </tr>
+  </tbody>
+</table>
